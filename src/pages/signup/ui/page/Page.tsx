@@ -47,7 +47,7 @@ export const SignupPage = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component='h1' variant='h5'>
-          Sign up
+          회원가입
         </Typography>
         <Box component='form' noValidate sx={{ mt: 3 }}>
         {/* <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}> */}
@@ -59,7 +59,7 @@ export const SignupPage = () => {
                 required
                 fullWidth
                 id='nickName'
-                label='Nick Name'
+                label='이름(실명)'
                 autoFocus
               />
             </Grid>
@@ -69,7 +69,7 @@ export const SignupPage = () => {
                 required
                 fullWidth
                 id='email'
-                label='Email for Login ID'
+                label='메일(로그인 아이디)'
                 name='email'
                 autoComplete='email'
               />
@@ -79,7 +79,7 @@ export const SignupPage = () => {
                 required
                 fullWidth
                 name='password'
-                label='Password'
+                label='비밀번호'
                 type='password'
                 id='password'
                 autoComplete='new-password'
@@ -92,12 +92,12 @@ export const SignupPage = () => {
             variant='contained'
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign Up
+            위 정보로 가입하기
           </Button>
           <Grid container justifyContent='flex-end'>
             <Grid item>
               <Link href='/login' variant='body2'>
-                Already have an account? Sign in
+                로그인 페이지로 이동
               </Link>
             </Grid>
           </Grid>
