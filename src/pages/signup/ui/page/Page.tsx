@@ -10,27 +10,27 @@ import {
   Container,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-// import { signUp } from "../../../../features/auth/api/Signup";
+import { SignUp } from "../../../../features/auth/api/Signup";
 
 export const SignupPage = () => {
-  // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   try {
-  //     const result = await signUp(data);
-  //     if (result) {
-  //       // 에러 발생
-  //       alert(result);
-  //     } else {
-  //       // 성공
-  //       alert("회원가입이 성공적으로 완료되었습니다.");
-  //       // 여기에 회원가입 성공 후 처리 로직 추가 (예: 로그인 페이지로 리다이렉트)
-  //     }
-  //   } catch (error) {
-  //     console.error("Signup failed:", error);
-  //     alert("회원가입 중 오류가 발생했습니다.");
-  //   }
-  // };
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    try {
+      const result = await SignUp(data);
+      if (result) {
+        // 에러 발생
+        alert(result);
+      } else {
+        // 성공
+        alert("회원가입이 성공적으로 완료되었습니다.");
+        // 여기에 회원가입 성공 후 처리 로직 추가 (예: 로그인 페이지로 리다이렉트)
+      }
+    } catch (error) {
+      console.error("Signup failed:", error);
+      alert("회원가입 중 오류가 발생했습니다.");
+    }
+  };
 
   return (
     <Container component='main' maxWidth='xs'>
@@ -49,20 +49,10 @@ export const SignupPage = () => {
         <Typography component='h1' variant='h5'>
           회원가입
         </Typography>
-        <Box component='form' noValidate sx={{ mt: 3 }}>
-        {/* <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}> */}
+        {/* <Box component='form' noValidate sx={{ mt: 3 }}> */}
+        <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete='given-name'
-                name='nickName'
-                required
-                fullWidth
-                id='nickName'
-                label='이름(실명)'
-                autoFocus
-              />
-            </Grid>
+         
 
             <Grid item xs={12}>
               <TextField
@@ -83,6 +73,27 @@ export const SignupPage = () => {
                 type='password'
                 id='password'
                 autoComplete='new-password'
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete='given-name'
+                name='nickName'
+                required
+                fullWidth
+                id='nickName'
+                label='이름(실명)'
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                name='role'
+                required
+                fullWidth
+                id='role'
+                label='역할'
+                autoFocus
               />
             </Grid>
           </Grid>
